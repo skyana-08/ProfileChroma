@@ -50,7 +50,7 @@ import CanvaIcon from './assets/Canva.svg';
 import AsepriteIcon from './assets/Aseprite.svg';
 
 // Development icons
-import ReactIcon from './assets/React.svg';
+import ReactIcon from './assets/React.png';
 import TailwindIcon from './assets/TailwindCSS.svg';
 import HTMLIcon from './assets/HTML.svg';
 import CSSIcon from './assets/CSS.svg';
