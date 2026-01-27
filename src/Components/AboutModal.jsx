@@ -1,13 +1,13 @@
 import { useEffect, useCallback } from 'react';
 import CloseIcon from '../assets/close.svg';
 import AboutMeIcon from '../assets/User.svg';
-import DesignIcon from '../assets/design.svg';
-import CodeIcon from '../assets/code.svg';
-import ArtIcon from '../assets/palette.svg';
+import DesignIcon from '../assets/Design.svg';
+import CodeIcon from '../assets/Code.svg';
+import ArtIcon from '../assets/Palette.svg';
 import EducationIcon from '../assets/GraduationCap.svg';
 import LocationIcon from '../assets/MapPin.svg';
-import EmailIcon from '../assets/mail.svg';
-import CVIcon from '../assets/file-text.svg';
+import EmailIcon from '../assets/Mail.svg';
+import CVIcon from '../assets/File-Text.svg';
 import ProfilePhoto from '../assets/Profile.png';
 
 // Software icons
