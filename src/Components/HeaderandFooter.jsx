@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react'; // Add useRef import
 import AboutModal from '../Components/AboutModal';
 import CVModal from '../Components/CVModal'; // Add CVModal import
 import { Menu, X } from 'lucide-react';
@@ -9,6 +9,10 @@ export default function HeaderandFooter() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isCVModalOpen, setIsCVModalOpen] = useState(false); // Add CV modal state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Create refs for menu button and menu container
+  const menuButtonRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   const openAboutModal = () => {
     setIsAboutModalOpen(true);
@@ -23,20 +27,25 @@ export default function HeaderandFooter() {
   const closeAboutModal = () => setIsAboutModalOpen(false);
   const closeCVModal = () => setIsCVModalOpen(false);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prev => !prev);
+  };
 
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Check if click is outside both menu button AND menu container
       if (isMobileMenuOpen && 
-          !event.target.closest('.mobile-menu-container') && 
-          !event.target.closest('.menu-button')) {
+          menuButtonRef.current && 
+          mobileMenuRef.current &&
+          !menuButtonRef.current.contains(event.target) && 
+          !mobileMenuRef.current.contains(event.target)) {
         setIsMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside); // Use mousedown instead of click
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMobileMenuOpen]);
 
   // Prevent body scroll when mobile menu is open
@@ -81,6 +90,7 @@ export default function HeaderandFooter() {
           </nav>
 
           <button 
+            ref={menuButtonRef} // Add ref here
             onClick={toggleMobileMenu}
             className="md:hidden text-white p-2 focus:outline-none menu-button transition-transform hover:scale-110"
             aria-label="Toggle menu"
@@ -89,9 +99,12 @@ export default function HeaderandFooter() {
           </button>
         </div>
 
-        <div className={`md:hidden mobile-menu-container fixed inset-0 z-40 transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}>
+        <div 
+          ref={mobileMenuRef} // Add ref here
+          className={`md:hidden mobile-menu-container fixed inset-0 z-40 transition-all duration-300 ${
+            isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+        >
           <div 
             className={`absolute inset-0 transition-all duration-300 ${
               isMobileMenuOpen ? 'backdrop-blur-md bg-black/40' : 'backdrop-blur-0 bg-black/0'
