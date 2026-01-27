@@ -1,55 +1,66 @@
 import { useState } from 'react';
 import HeaderandFooter from './Components/HeaderandFooter';
+import ProjectDetailModal from './Components/ProjectDetailModal';
 import background2 from './assets/background2.png';
+
+// Project Assets
 import TrackED1 from './assets/TrackED1.png';
 import TrackED2 from './assets/TrackED2.png';
 import TrackED3 from './assets/TrackED3.png';
 import TrackED4 from './assets/TrackED4.png';
 import TrackED5 from './assets/TrackED5.png';
+
+import Ctrl1 from './assets/Ctrl1.png';
+import Ctrl2 from './assets/Ctrl2.png';
+import Ctrl3 from './assets/Ctrl3.png';
+import Ctrl4 from './assets/Ctrl4.png';
+import CAD1 from './assets/CAD1.svg';
+import CAD2 from './assets/CAD2.svg';
+import CAD3 from './assets/CAD3.svg';
+
+import POS1 from './assets/POS3.png';
+import POS2 from './assets/POS2.png';
+import POS3 from './assets/POS1.png';
+import POS4 from './assets/POS4.png';
+import POS5 from './assets/POS5.png';
+import POS6 from './assets/POS6.jpg';
+
 import Port1 from './assets/Port1.png';
+import PortFigma from './assets/PortFigma.png';
 import Port2 from './assets/Port2.png';
 import Port3 from './assets/Port3.png';
 import Port4 from './assets/Port4.png';
+import PortD1 from './assets/PortD1.png';
+import PortD2 from './assets/PortD2.png';
+
 import GA1 from './assets/GA1.PNG';
 import GA2 from './assets/GA2.PNG';
 import GA3 from './assets/GA3.PNG';
 import GA4 from './assets/GA4.PNG';
+
 import TrainPA1 from './assets/TrainPA1.PNG';
+
 import ILLUST1 from './assets/ILLUST1.png';
 import ILLUST2 from './assets/ILLUST2.png';
 import ILLUST3 from './assets/ILLUST3.jpeg';
 import ILLUST4 from './assets/ILLUST4.png';
 import ILLUST5 from './assets/ILLUST5.png';
-import COMS1 from './assets/COMS1.mp4';
-import POS3 from './assets/POS1.png';
-import POS2 from './assets/POS2.png';
-import POS1 from './assets/POS3.png';
-import POS4 from './assets/POS4.png';
-import POS5 from './assets/POS5.png';
-import POS6 from './assets/POS6.jpg';
-import Ctrl1 from './assets/Ctrl1.png';
-import Ctrl2 from './assets/Ctrl2.png';
-import Ctrl3 from './assets/Ctrl3.png';
-import Ctrl4 from './assets/Ctrl4.png';
 
+import COMS1 from './assets/COMS1.mp4';
+
+// Icons
 import FilterIcon from './assets/Filter.svg';
 import LayoutIcon from './assets/Layout.svg';
 import ImageIcon from './assets/Image.svg';
-import BoxIcon from './assets/Box.svg';
 import PixelArtIcon from './assets/PixelArt.svg';
 import UIIcon from './assets/UIUX.svg';
 import GraphicIcon from './assets/GraphicDesign.svg';
-import ProjectDetailModal from './Components/ProjectDetailModal';
-
-// Software icons
 import FigmaIcon from './assets/Figma.svg';
 import AdobeIllustratorIcon from './assets/AdobeIllustrator.svg';
 import AdobePhotoshopIcon from './assets/AdobePhotoshop.svg';
 import ProcreateIcon from './assets/Procreate.png';
 import CanvaIcon from './assets/Canva.svg';
 import AsepriteIcon from './assets/Aseprite.svg';
-
-// Development icons
 import ReactIcon from './assets/React.png';
 import TailwindIcon from './assets/TailwindCSS.svg';
 import HTMLIcon from './assets/HTML.svg';
@@ -60,14 +71,14 @@ const projects = [
   {
     id: 1,
     title: "TrackED System",
-    category: "ui/ux",
+    category: "ui",
     description: "Academic monitoring system for Cavite State University - Capstone Project",
-    longDescription: `As Lead UI/UX Designer and Frontend Developer for this capstone project, I led the design and development of TrackED a student academic tracking system for Cavite State University.
+    longDescription: `As Lead UI Designer and Frontend Developer for this capstone project, I led the design and development of TrackED a student academic tracking system for Cavite State University.
 
     Key Contributions:
-    • Lead the UI/UX design process from research to implementation
+    • Lead the UI design process from research to implementation
     • Conducted user research with my group to the students, faculty, and administrative staff
-    • Created multiple design iterations that significantly improved my UI/UX skills
+    • Created multiple design iterations that significantly improved my UI skills
 
     Outcomes:
     • Reduced administrative workload by 40% through streamlined processes
@@ -75,8 +86,8 @@ const projects = [
     • Enhanced my expertise in user-centered design and frontend development`,
     images: [TrackED1, TrackED2, TrackED3, TrackED4, TrackED5],
     image: TrackED1,
-    tags: ["UI/UX Design", "Frontend Development", "React.js", "Tailwind CSS", "Responsive Design", "HTML", "CSS"],
-    programs: ["Figma", "React", "Tailwind CSS", "HTML", "CSS", "Visual Studio Code"], 
+    tags: ["UI Design", "Frontend Development", "React.js", "Tailwind CSS", "Responsive Design", "HTML", "CSS"],
+    programs: ["Figma", "React", "Tailwind CSS", "HTML", "CSS", "Visual Studio Code"],
     type: "Web Application"
   },
   {
@@ -95,7 +106,7 @@ const projects = [
     title: "Pixel Art Commission",
     category: "digital-art",
     description: "Commissioned pixel art animation with parallax background effects",
-    longDescription: `A commissioned pixel art animation project where I created a dynamic scene with advanced parallax background effects. This commission challenged me to push my animation skills and learn new techniques in Aseprite.
+    longDescription: `A commissioned pixel art animation project where I created a dynamic scene with advanced parallax background effects.
 
     Key Learnings:
     • Mastered parallax scrolling techniques for depth and immersion
@@ -127,9 +138,9 @@ const projects = [
   {
     id: 5,
     title: "Ctrl + Alt + Delight POS System",
-    category: "ui/ux",
+    category: "ui",
     description: "Point of Sale system with custom product illustrations and intuitive workflow",
-    longDescription: `As Lead UI/UX Designer for this Point of Sale system, I designed an intuitive POS interface focused on streamlining online business operation. The project involved creating custom illustrations for product displays and developing a seamless user flow.
+    longDescription: `As Lead UI Designer for this Point of Sale system, I designed an intuitive POS interface focused on streamlining online business operation.
 
     Key Design Achievements:
     • Designed complete POS system flow
@@ -140,9 +151,9 @@ const projects = [
     • Enhanced illustration skills for product visualization
     • Improved understanding of online business operations and user needs
     • Created wireframes, prototypes, and final UI designs`,
-    images: [Ctrl1, Ctrl2, Ctrl3, Ctrl4],
-    image: Ctrl1,
-    tags: ["UI/UX Design", "POS System", "Illustration", "Dashboard Design", "User Flow", "Figma", "HTML", "CSS"],
+    images: [CAD1, CAD2, CAD3, Ctrl1, Ctrl2, Ctrl3, Ctrl4],
+    image: CAD1,
+    tags: ["UI Design", "POS System", "Illustration", "Dashboard Design", "User Flow", "Figma", "HTML", "CSS"],
     programs: ["Figma", "Procreate", "HTML", "CSS", "Visual Studio Code"],
     type: "POS System"
   },
@@ -151,7 +162,8 @@ const projects = [
     title: "Creative Poster Collection",
     category: "posters",
     description: "A series of creative posters showcasing Photoshop and Illustrator skills",
-    longDescription: `A diverse collection of posters created to demonstrate my proficiency in Adobe Creative Suite. Each poster explores different design styles, techniques, and concepts to showcase my versatility in digital design.
+    longDescription: `A diverse collection of posters created to demonstrate my proficiency in Adobe Creative Suite.
+
     Design Techniques Demonstrated:
     • Advanced photo manipulation and compositing in Photoshop
     • Color theory application for different moods and themes
@@ -169,12 +181,12 @@ const projects = [
   {
     id: 7,
     title: "3Minds Portfolio Website",
-    category: "ui/ux",
-    description: "Academic group portfolio website project as Lead UI/UX Designer",
-    longDescription: `As Lead UI/UX Designer for this academic group project, I designed and helped develop a responsive portfolio website for our 3-member team called "3Minds". This project marked the beginning of my journey into web development and responsive design.
+    category: "ui",
+    description: "Academic group portfolio website project as Lead UI Designer",
+    longDescription: `As Lead UI Designer for this academic group project, I designed and helped develop a responsive portfolio website for our 3-member team.
 
     Key Responsibilities:
-    • Led the UI/UX design process for a 3-person portfolio website
+    • Led the UI design process for a 3-person portfolio website
     • Created responsive layouts that work seamlessly across desktop and mobile devices
     • Designed cohesive visual identity and user experience for showcasing team projects
 
@@ -183,9 +195,9 @@ const projects = [
     • Learned the fundamentals of React.js for component-based development
     • Applied Tailwind CSS for efficient and consistent styling
     • Gained experience in cross-browser compatibility and accessibility`,
-    images: [Port1, Port2, Port3, Port4],
-    image: Port1,
-    tags: ["UI/UX Design", "Responsive Web Design", "React.js", "Tailwind CSS", "Portfolio Design", "Academic Project", "Group Project"],
+    images: [PortD1, PortD2, PortFigma, Port1, Port2, Port3, Port4],
+    image: PortD1,
+    tags: ["UI Design", "Responsive Web Design", "React.js", "Tailwind CSS", "Portfolio Design", "Academic Project", "Group Project"],
     programs: ["Figma", "React", "Tailwind CSS", "HTML", "CSS", "Visual Studio Code"],
     type: "Website Design"
   },
@@ -194,7 +206,7 @@ const projects = [
     title: "Character Illustration",
     category: "digital-art",
     description: "Expressive character illustrations with vibrant color palettes",
-    longDescription: "A collection of character illustrations exploring different styles, expressions, and color schemes. This project allowed me to experiment with various digital painting techniques and develop a cohesive visual language for character design. Each illustration tells a unique story through posture, expression, and color choices.",
+    longDescription: "A collection of character illustrations exploring different styles, expressions, and color schemes. This project allowed me to experiment with various digital painting techniques and develop a cohesive visual language for character design.",
     images: [ILLUST1, ILLUST2, ILLUST3, ILLUST4, ILLUST5],
     image: ILLUST1,
     tags: ["Character Design", "Digital Painting", "Illustration", "Color Theory", "Expression"],
@@ -203,50 +215,40 @@ const projects = [
   }
 ];
 
-// Safe icon mapping with fallbacks
 const categoryIcons = {
   'all': FilterIcon,
-  'ui/ux': UIIcon || LayoutIcon,
+  'ui': UIIcon,
   'posters': ImageIcon,
-  'digital-art': GraphicIcon || ImageIcon
+  'digital-art': GraphicIcon
 };
 
-// Icons for different project types
 const typeIcons = {
   'Poster': ImageIcon,
   'Pixel Art': PixelArtIcon,
   'Illustration': ImageIcon,
   'Web Application': LayoutIcon,
   'Website Design': LayoutIcon,
-  'UI Kit': UIIcon || LayoutIcon,
-  'Mobile App': UIIcon || LayoutIcon,
+  'UI Kit': UIIcon,
+  'Mobile App': UIIcon,
   'Game Mockup': PixelArtIcon,
   'Pixel Art Animation': PixelArtIcon,
   'POS System': LayoutIcon
 };
 
-// Program icons mapping with all icons
 const programIcons = {
-  // Design Tools
   'Figma': FigmaIcon,
   'Adobe Photoshop': AdobePhotoshopIcon,
   'Adobe Illustrator': AdobeIllustratorIcon,
-  'Adobe XD': AdobeIllustratorIcon, // Using Illustrator icon as fallback for XD
+  'Adobe XD': AdobeIllustratorIcon,
   'Procreate': ProcreateIcon,
   'Canva': CanvaIcon,
   'Aseprite': AsepriteIcon,
-  
-  // Development Tools
   'Visual Studio Code': VSCodeIcon,
   'React': ReactIcon,
   'React.js': ReactIcon,
   'Tailwind CSS': TailwindIcon,
   'HTML': HTMLIcon,
-  'CSS': CSSIcon,
-  
-  // Fallbacks
-  'VSCode': VSCodeIcon,
-  'Tailwind': TailwindIcon
+  'CSS': CSSIcon
 };
 
 const typeColors = {
@@ -262,28 +264,22 @@ const typeColors = {
   'POS System': 'bg-amber-500/20 text-amber-300 border-amber-500/30'
 };
 
-// Helper component for SVG icons
 const Icon = ({ icon: IconComponent, className = "w-5 h-5", white = false }) => {
   if (!IconComponent) return null;
   
-  try {
-    if (typeof IconComponent === 'string') {
-      return <img 
+  if (typeof IconComponent === 'string') {
+    return (
+      <img 
         src={IconComponent} 
         alt="icon" 
         className={`${className} ${white ? 'invert brightness-0' : ''}`}
-        style={white ? { filter: 'brightness(0) invert(1)' } : {}} 
-      />;
-    }
-    
-    return null;
-  } catch (error) {
-    console.error('Error rendering icon:', error);
-    return null;
+      />
+    );
   }
+  
+  return null;
 };
 
-// Media Renderer Component for handling both images and videos
 const MediaRenderer = ({ src, alt, className, isThumbnail = false }) => {
   const isVideo = src?.toLowerCase().match(/\.(mp4|webm|mov|avi|mkv)$/i);
   
@@ -297,7 +293,6 @@ const MediaRenderer = ({ src, alt, className, isThumbnail = false }) => {
         playsInline
         autoPlay={isThumbnail}
         controls={!isThumbnail}
-        poster={isThumbnail ? null : undefined}
       >
         Your browser does not support the video tag.
       </video>
@@ -339,7 +334,7 @@ export default function Works() {
 
   const categories = [
     { id: 'all', label: 'All Projects', count: projects.length },
-    { id: 'ui/ux', label: 'UI/UX Design', count: projects.filter(p => p.category === 'ui/ux').length },
+    { id: 'ui', label: 'UI Design', count: projects.filter(p => p.category === 'ui').length },
     { id: 'posters', label: 'Posters', count: projects.filter(p => p.category === 'posters').length },
     { id: 'digital-art', label: 'Digital Art', count: projects.filter(p => p.category === 'digital-art').length }
   ];
@@ -363,8 +358,7 @@ export default function Works() {
       <div className="min-h-screen pt-16 pb-10 md:pt-20 px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto">
           <header className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 
-              bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent leading-tight">
               My Creative Works
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed">
@@ -372,10 +366,8 @@ export default function Works() {
             </p>
           </header>
 
-          {/* Improved Category Filter Section */}
           <div className="mb-8 sm:mb-10 md:mb-12">
             <div className="flex flex-col">
-              {/* Mobile Layout - Stack buttons */}
               <div className="block lg:hidden space-y-2 mb-6 md:mb-8">
                 {categories.map((cat) => (
                   <button
@@ -402,7 +394,6 @@ export default function Works() {
                 ))}
               </div>
               
-              {/* Desktop Layout - Horizontal buttons */}
               <div className="hidden lg:flex flex-wrap gap-3 mb-6 md:mb-8">
                 {categories.map((cat) => (
                   <button
@@ -461,7 +452,7 @@ export default function Works() {
                     <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-600 capitalize font-bold ml-2 flex-shrink-0">
                       <Icon icon={categoryIcons[project.category]} className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       <span className="hidden sm:inline">
-                        {project.category === 'ui/ux' ? 'UI/UX' : 
+                        {project.category === 'ui' ? 'UI Design' : 
                          project.category === 'digital-art' ? 'Digital Art' :
                          project.category}
                       </span>
@@ -472,7 +463,6 @@ export default function Works() {
                     {project.description}
                   </p>
                   
-                  {/* Programs Used (Preview) */}
                   {project.programs && project.programs.length > 0 && (
                     <div className="mb-3">
                       <div className="flex flex-wrap gap-1.5 items-center">
@@ -538,7 +528,7 @@ export default function Works() {
           typeColors={typeColors}
           categoryIcons={categoryIcons}
           programIcons={programIcons}
-          MediaRenderer={MediaRenderer} // Pass MediaRenderer to modal
+          MediaRenderer={MediaRenderer}
         />
       )}
     </div>

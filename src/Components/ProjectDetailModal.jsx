@@ -12,11 +12,9 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
   const programs = project.programs || [];
   const slideIntervalRef = useRef(null);
   const videoRefs = useRef([]);
-  const autoSlideTimeout = 3000; // 3 seconds
+  const autoSlideTimeout = 3000;
 
-  // Animation and slideshow effects
   useEffect(() => {
-    // Trigger opening animation
     const timer = setTimeout(() => {
       setIsModalOpen(true);
     }, 50);
@@ -24,22 +22,17 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto slide functionality for multiple images
   useEffect(() => {
     if (images.length > 1 && isModalOpen) {
-      // Clear existing interval
       if (slideIntervalRef.current) {
         clearInterval(slideIntervalRef.current);
       }
       
-      // Set up new interval
       slideIntervalRef.current = setInterval(() => {
-        // Check if current media is a video
         const currentMedia = images[currentImageIndex];
         const isCurrentVideo = typeof currentMedia === 'string' && 
           currentMedia.toLowerCase().match(/\.(mp4|webm|mov|avi|mkv)$/i);
         
-        // Only auto-slide if not a video or if video is not playing
         if (!isCurrentVideo || !isPlaying) {
           setCurrentImageIndex((prev) => (prev + 1) % images.length);
         }
@@ -53,7 +46,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
     }
   }, [currentImageIndex, isModalOpen, images.length, isPlaying]);
 
-  // Handle video state for current index
   useEffect(() => {
     const currentMedia = images[currentImageIndex];
     const isCurrentVideo = typeof currentMedia === 'string' && 
@@ -70,7 +62,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
     }
   }, [currentImageIndex, isPlaying, isMuted]);
 
-  // Get current media type
   const getCurrentMediaType = () => {
     const currentMedia = images[currentImageIndex];
     if (typeof currentMedia === 'string') {
@@ -79,29 +70,24 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
     return 'image';
   };
 
-  // Handle video play/pause
   const handleVideoPlayPause = () => {
     setIsPlaying(!isPlaying);
     setShowVideoControls(true);
     
-    // Hide controls after 3 seconds
     setTimeout(() => {
       setShowVideoControls(false);
     }, 3000);
   };
 
-  // Handle video mute/unmute
   const handleVideoMute = () => {
     setIsMuted(!isMuted);
     setShowVideoControls(true);
     
-    // Hide controls after 3 seconds
     setTimeout(() => {
       setShowVideoControls(false);
     }, 3000);
   };
 
-  // Get current image description or use project description
   const getCurrentDescription = () => {
     if (images[currentImageIndex]?.description) {
       return images[currentImageIndex].description;
@@ -109,7 +95,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
     return project.longDescription || project.description;
   };
 
-  // Format description with line breaks and sections
   const formatDescription = (text) => {
     if (!text) return '';
     
@@ -163,13 +148,11 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Handle manual image navigation
   const handleManualImageChange = (index) => {
     setIsPlaying(false);
     setCurrentImageIndex(index);
   };
 
-  // Get video ref
   const setVideoRef = (index, ref) => {
     videoRefs.current[index] = ref;
   };
@@ -187,7 +170,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className={`absolute top-4 right-4 z-50 p-2 bg-black/50 text-white hover:bg-black/70 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-105 ${
@@ -197,11 +179,8 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
           <X className="w-6 h-6" />
         </button>
 
-        {/* Main Content Container */}
         <div className="relative w-full h-full flex flex-col lg:flex-row gap-4 md:gap-6">
-          {/* Image Container - Left/Top on mobile */}
           <div className="relative w-full lg:w-2/3 h-2/3 lg:h-full flex flex-col items-center justify-center">
-            {/* Title - Mobile */}
             <div className={`lg:hidden w-full mb-3 flex justify-center transition-all duration-500 ${
               isModalOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}>
@@ -218,10 +197,8 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-contain p-4"
                 isThumbnail={false}
-                onVideoRef={(ref) => setVideoRef(currentImageIndex, ref)}
               />
               
-              {/* Video Controls Overlay */}
               {getCurrentMediaType() === 'video' && (
                 <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 backdrop-blur-sm bg-black/70 px-4 py-2 rounded-full border border-white/20 transition-all duration-300 ${
                   showVideoControls ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
@@ -253,7 +230,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
               )}
             </div>
 
-            {/* Navigation Buttons */}
             {images.length > 1 && (
               <>
                 <button
@@ -277,7 +253,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
               </>
             )}
 
-            {/* Image Counter */}
             {images.length > 1 && (
               <div className={`absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 backdrop-blur-sm bg-black/70 px-3 py-1 md:px-4 md:py-2 rounded-full border border-white/20 transition-all duration-500 ${
                 isModalOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
@@ -306,7 +281,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
               </div>
             )}
             
-            {/* Image Counter Text */}
             {images.length > 1 && (
               <div className={`absolute bottom-2 md:bottom-4 right-4 z-20 backdrop-blur-sm bg-black/70 px-3 py-1 rounded-full text-xs text-white/90 border border-white/20 flex items-center gap-1 transition-all duration-500 ${
                 isModalOpen ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
@@ -320,11 +294,9 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
             )}
           </div>
 
-          {/* Description Container - Right/Bottom */}
           <div className={`w-full lg:w-1/3 h-1/3 lg:h-full flex flex-col bg-black/60 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10 overflow-hidden transition-all duration-700 ${
             isModalOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
           }`}>
-            {/* Title - Desktop */}
             <div className={`hidden lg:block mb-4 transition-all duration-500 ${
               isModalOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}>
@@ -342,7 +314,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
               </div>
             </div>
 
-            {/* Scrollable content area */}
             <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
               <h3 className={`text-lg md:text-xl font-semibold text-white mb-3 md:mb-4 transition-all duration-500 ${
                 isModalOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
@@ -355,7 +326,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
                 {formatDescription(getCurrentDescription())}
               </div>
 
-              {/* Program Used Section */}
               {programs.length > 0 && (
                 <div className={`mt-6 pt-6 border-t border-white/20 transition-all duration-500 ${
                   isModalOpen ? 'translate-y-0 opacity-100 delay-200' : 'translate-y-8 opacity-0'
@@ -390,7 +360,6 @@ const ProjectDetailModal = ({ project, onClose, typeColors, categoryIcons, progr
                 </div>
               )}
 
-              {/* Skills/Tags */}
               {project.tags && project.tags.length > 0 && (
                 <div className={`mt-6 pt-6 border-t border-white/20 transition-all duration-500 ${
                   isModalOpen ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-8 opacity-0'
